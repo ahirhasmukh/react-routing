@@ -6,7 +6,8 @@ console.log('test');
 
 var app = {
     title: 'This is react demo project',
-    subTitle: 'This is a sub title'
+    subTitle: 'This is a sub title',
+    options: ['one', 'two']
 };
 
 var template = React.createElement(
@@ -17,10 +18,15 @@ var template = React.createElement(
         { id: 'header_id', name: 'header' },
         app.title
     ),
-    React.createElement(
+    app.subTitle && React.createElement(
         'p',
         null,
         app.subTitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
     ),
     React.createElement(
         'ol',
@@ -45,7 +51,7 @@ var template = React.createElement(
 
 var user = {
     name: 'Baldaniya Hasmukh',
-    age: 26,
+    age: 18,
     location: 'Ahmedabad'
 };
 
@@ -66,9 +72,9 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : '-'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
         'Age : ',
@@ -79,4 +85,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
