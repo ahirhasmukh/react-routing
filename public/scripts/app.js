@@ -1,47 +1,126 @@
 'use strict';
 
-// Argument object - no longer bound with arrow function
-var add = function add(a, b) {
-    //console.log(arguments);
-    return a + b;
-};
-console.log(add(5, 10, 15, 20, 25));
+// JSX - Javascript XML
 
-// this keyword - no longer bound
+var app = {
+    title: 'This is react demo project',
+    subTitle: 'This is a sub title',
+    options: ['one', 'two']
+};
+
+var template = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        { id: 'header_id', name: 'header' },
+        app.title
+    ),
+    app.subTitle && React.createElement(
+        'p',
+        null,
+        app.subTitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
+    ),
+    React.createElement(
+        'ol',
+        { className: 'list-view' },
+        React.createElement(
+            'li',
+            null,
+            'Item 1'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item 2'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item 3'
+        )
+    )
+);
 
 var user = {
-    name: 'Hasmukh',
-    cities: ['Ahmedabad', 'Rajkot', 'Pune'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
-        // .forEach use for facing data
-        // return this.cities.forEach((city) => {
-        //     console.log(city);
-        //     return city;
-        // });
-
-        //return this.cities.map((city) => city );
-
-        // .map use for mapping data
-        return this.cities.map(function (city) {
-            return _this.name + ' has lived in ' + city;
-        });
-    }
+    name: 'Baldaniya Hasmukh',
+    age: 18,
+    location: 'Ahmedabad'
 };
 
-console.log(user.printPlacesLived());
-
-var multiplier = {
-    numbers: [10, 20, 30],
-    multiplyBy: 5,
-    multiply: function multiply() {
-        var _this2 = this;
-
-        return this.numbers.map(function (number) {
-            return number * _this2.multiplyBy;
-        });
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location : ',
+            location
+        );
     }
+}
+
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        user.name ? user.name : '-'
+    ),
+    user.age && user.age >= 18 && React.createElement(
+        'p',
+        null,
+        'Age : ',
+        user.age
+    ),
+    getLocation(user.location)
+);
+
+var count = 0;
+var id = 'btn-id';
+var addOne = function addOne() {
+    console.log("count one");
+    count++;
+};
+var minusOne = function minusOne() {
+    console.log("count minus one");
 };
 
-console.log(multiplier.multiply());
+var resetCount = function resetCount() {
+    console.log("count reset");
+};
+
+var templateThree = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Count : ',
+        count
+    ),
+    React.createElement(
+        'button',
+        { className: 'button', type: 'button', id: id, onClick: addOne },
+        '+1'
+    ),
+    React.createElement(
+        'button',
+        { className: 'button', type: 'button', onClick: minusOne },
+        '-1'
+    ),
+    React.createElement(
+        'button',
+        { className: 'button', type: 'button', onClick: resetCount },
+        'Reset'
+    )
+);
+
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(templateThree, appRoot);
