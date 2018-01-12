@@ -5,47 +5,97 @@
 var app = {
     title: 'This is react demo project',
     subTitle: 'This is a sub title',
-    options: ['one', 'two']
+    options: []
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        { id: 'header_id', name: 'header' },
-        app.title
-    ),
-    app.subTitle && React.createElement(
-        'p',
+var onSubmitForm = function onSubmitForm(e) {
+    e.preventDefault();
+    console.log('function called');
+    var option = e.target.elements.option.value;
+    var option1 = e.target.elements.option1.value;
+    console.log(e.target.elements);
+    if (option && option1) {
+        app.options.push(option);
+        app.options.push(option1);
+        e.target.elements.option.value = "";
+        e.target.elements.option1.value = "";
+        renderFunc();
+    }
+    //e.target.elements.option1.value = "Hasmukh"
+};
+
+var onRemoveOptions = function onRemoveOptions() {
+    app.options = [];
+    renderFunc();
+};
+
+var appRoot = document.getElementById('app');
+
+var renderFunc = function renderFunc() {
+    var template = React.createElement(
+        'div',
         null,
-        app.subTitle
-    ),
-    React.createElement(
-        'p',
-        null,
-        app.options.length > 0 ? 'Here are your options' : 'No options'
-    ),
-    React.createElement(
-        'ol',
-        { className: 'list-view' },
         React.createElement(
-            'li',
+            'h1',
+            { id: 'header_id', name: 'header' },
+            app.title
+        ),
+        app.subTitle && React.createElement(
+            'p',
             null,
-            'Item 1'
+            app.subTitle
         ),
         React.createElement(
-            'li',
+            'p',
             null,
-            'Item 2'
+            app.options.length > 0 ? 'Here are your options' : 'No options'
         ),
         React.createElement(
-            'li',
+            'p',
             null,
-            'Item 3'
+            app.options.length
+        ),
+        React.createElement(
+            'button',
+            { style: { marginTop: '2px' }, type: 'button', onClick: onRemoveOptions },
+            'Remove All'
+        ),
+        React.createElement(
+            'ol',
+            { className: 'list-view' },
+            React.createElement(
+                'li',
+                null,
+                'Item 1'
+            ),
+            React.createElement(
+                'li',
+                null,
+                'Item 2'
+            ),
+            React.createElement(
+                'li',
+                null,
+                'Item 3'
+            )
+        ),
+        React.createElement(
+            'form',
+            { onSubmit: onSubmitForm },
+            React.createElement('input', { type: 'text', name: 'option', placeholder: 'Enter value' }),
+            React.createElement('input', { type: 'text', name: 'option1', placeholder: 'Enter value' }),
+            React.createElement(
+                'button',
+                { type: 'submit' },
+                'Add Value'
+            ),
+            React.createElement('br', null)
         )
-    )
-);
+    );
+    ReactDOM.render(template, appRoot);
+};
+
+renderFunc();
 
 var user = {
     name: 'Baldaniya Hasmukh',
@@ -81,54 +131,4 @@ var templateTwo = React.createElement(
     getLocation(user.location)
 );
 
-var count = 0;
-var id = 'btn-id';
-var addOne = function addOne() {
-    console.log("count one");
-    count++;
-    manuallyDataBinding();
-};
-var minusOne = function minusOne() {
-    console.log("count minus one");
-    count--;
-    manuallyDataBinding();
-};
-
-var resetCount = function resetCount() {
-    console.log("count reset");
-    count = 0;
-    manuallyDataBinding();
-};
-
-var appRoot = document.getElementById('app');
-
-var manuallyDataBinding = function manuallyDataBinding() {
-    var templateThree = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            'Count : ',
-            count
-        ),
-        React.createElement(
-            'button',
-            { className: 'button', type: 'button', id: id, onClick: addOne },
-            '+1'
-        ),
-        React.createElement(
-            'button',
-            { className: 'button', type: 'button', onClick: minusOne },
-            '-1'
-        ),
-        React.createElement(
-            'button',
-            { className: 'button', type: 'button', onClick: resetCount },
-            'Reset'
-        )
-    );
-    ReactDOM.render(templateThree, appRoot);
-};
-
-manuallyDataBinding();
+//ReactDOM.render(templateTwo,appRoot);

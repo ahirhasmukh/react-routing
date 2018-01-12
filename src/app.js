@@ -3,21 +3,58 @@
 const app = {
     title : 'This is react demo project',
     subTitle : 'This is a sub title',
-    options:['one','two']
+    options:[]
 }
 
-const template = (
-    <div>
-        <h1 id="header_id" name="header">{app.title}</h1>
-        {app.subTitle && <p>{app.subTitle}</p>}
-        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-        <ol className="list-view">
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-        </ol>
-    </div>
-);
+const onSubmitForm = (e) =>{
+    e.preventDefault();
+    console.log('function called');
+    const option = e.target.elements.option.value
+    const option1 = e.target.elements.option1.value
+    console.log(e.target.elements);
+    if(option && option1){
+        app.options.push(option);
+        app.options.push(option1);
+        e.target.elements.option.value = "";
+        e.target.elements.option1.value = "";
+        renderFunc();
+    }
+    //e.target.elements.option1.value = "Hasmukh"
+}
+
+const onRemoveOptions = () => {
+    app.options = [];
+    renderFunc();
+}
+
+const appRoot = document.getElementById('app');
+
+
+const renderFunc = () =>{
+    const template = (
+        <div>
+            <h1 id="header_id" name="header">{app.title}</h1>
+            {app.subTitle && <p>{app.subTitle}</p>}
+            <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+            <p>{app.options.length}</p>
+            <button style={{marginTop:'2px'}} type="button" onClick={onRemoveOptions}>Remove All</button>
+            <ol className="list-view">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ol>
+            <form onSubmit={onSubmitForm}>
+                <input type="text" name="option" placeholder="Enter value"/>
+                <input type="text" name="option1" placeholder="Enter value"/>
+                <button type="submit">Add Value</button><br/>
+            </form>
+        </div>
+    );
+    ReactDOM.render(template,appRoot);
+}
+
+renderFunc();
+
 
 const user = {
     name: 'Baldaniya Hasmukh',
@@ -40,39 +77,4 @@ const templateTwo = (
     </div>
 );
 
-let count = 0;
-const id = 'btn-id'
-const addOne = () => {
-    console.log("count one");
-    count++;
-    manuallyDataBinding();
-}
-const minusOne = () => {
-    console.log("count minus one");
-    count--;
-    manuallyDataBinding();
-}
-
-const resetCount = () => {
-    console.log("count reset");
-    count = 0;
-    manuallyDataBinding();
-}
-
-const appRoot = document.getElementById('app');
-
-
-const manuallyDataBinding = () => {
-    const templateThree = (
-        <div>
-            <h1>Count : {count}</h1>
-            <button className="button" type="button" id={id} onClick = {addOne}>+1</button>
-            <button className="button" type="button" onClick = {minusOne}>-1</button>
-            <button className="button" type="button" onClick = {resetCount}>Reset</button>
-            {/* <button className="button" type="button" id={id} onClick = {() => {console.log('addd')}}>Add</button> */}
-        </div>
-    );
-    ReactDOM.render(templateThree,appRoot);
-}
-
-manuallyDataBinding();
+//ReactDOM.render(templateTwo,appRoot);

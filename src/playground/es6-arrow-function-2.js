@@ -36,4 +36,4 @@ const multiplier = {
     }
 }
 
-console.log(multiplier.multiply());
+console.log(multiplier.multiply()); // 
