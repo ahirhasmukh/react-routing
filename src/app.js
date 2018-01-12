@@ -2,13 +2,13 @@ console.log('test');
 
 // JSX - Javascript XML
 
-var app = {
+const app = {
     title : 'This is react demo project',
     subTitle : 'This is a sub title',
     options:['one','two']
 }
 
-var template = (
+const template = (
     <div>
         <h1 id="header_id" name="header">{app.title}</h1>
         {app.subTitle && <p>{app.subTitle}</p>}
@@ -21,7 +21,7 @@ var template = (
     </div>
 );
 
-var user = {
+const user = {
     name: 'Baldaniya Hasmukh',
     age : 18,
     location : 'Ahmedabad'
@@ -33,7 +33,7 @@ function getLocation(location){
     }
 }
 
-var templateTwo = (
+const templateTwo = (
     <div>
         <h1>{user.name ? user.name : '-'}</h1>
         {(user.age && user.age >= 18) && <p>Age : {user.age}</p>}
@@ -42,6 +42,6 @@ var templateTwo = (
     </div>
 );
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(template,appRoot);
