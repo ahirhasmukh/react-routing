@@ -86,41 +86,49 @@ var id = 'btn-id';
 var addOne = function addOne() {
     console.log("count one");
     count++;
+    manuallyDataBinding();
 };
 var minusOne = function minusOne() {
     console.log("count minus one");
+    count--;
+    manuallyDataBinding();
 };
 
 var resetCount = function resetCount() {
     console.log("count reset");
+    count = 0;
+    manuallyDataBinding();
 };
-
-var templateThree = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Count : ',
-        count
-    ),
-    React.createElement(
-        'button',
-        { className: 'button', type: 'button', id: id, onClick: addOne },
-        '+1'
-    ),
-    React.createElement(
-        'button',
-        { className: 'button', type: 'button', onClick: minusOne },
-        '-1'
-    ),
-    React.createElement(
-        'button',
-        { className: 'button', type: 'button', onClick: resetCount },
-        'Reset'
-    )
-);
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateThree, appRoot);
+var manuallyDataBinding = function manuallyDataBinding() {
+    var templateThree = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Count : ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { className: 'button', type: 'button', id: id, onClick: addOne },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { className: 'button', type: 'button', onClick: minusOne },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { className: 'button', type: 'button', onClick: resetCount },
+            'Reset'
+        )
+    );
+    ReactDOM.render(templateThree, appRoot);
+};
+
+manuallyDataBinding();
