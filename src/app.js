@@ -1,5 +1,3 @@
-console.log('test');
-
 // JSX - Javascript XML
 
 const app = {
@@ -44,4 +42,4 @@ const templateTwo = (
 
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template,appRoot);
+ReactDOM.render(templateTwo,appRoot);
