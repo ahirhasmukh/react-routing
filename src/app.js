@@ -12,7 +12,6 @@ const onSubmitForm = (e) =>{
     // const option1 = e.target.elements.option1.value
     console.log(e.target.elements);
     if(option){
-        debugger
         app.options.push(option);
         e.target.elements.option.value = "";
         // e.target.elements.option1.value = "";
@@ -26,6 +25,11 @@ const onRemoveOptions = () => {
     renderFunc();
 }
 
+const onRendomValue = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    console.log(randomNum);
+}
+
 const appRoot = document.getElementById('app');
 
 
@@ -35,7 +39,7 @@ const renderFunc = () =>{
             <h1 id="header_id" name="header">{app.title}</h1>
             {app.subTitle && <p>{app.subTitle}</p>}
             <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-            <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} type="button" onClick={onRendomValue}>What should I do? All</button>
             <button style={{marginTop:'2px'}} type="button" onClick={onRemoveOptions}>Remove All</button>
             <ol className="list-view">
             {
