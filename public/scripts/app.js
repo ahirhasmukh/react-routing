@@ -1,7 +1,6 @@
 'use strict';
 
 // JSX - Javascript XML
-
 var app = {
     title: 'This is react demo project',
     subTitle: 'This is a sub title',
@@ -12,13 +11,13 @@ var onSubmitForm = function onSubmitForm(e) {
     e.preventDefault();
     console.log('function called');
     var option = e.target.elements.option.value;
-    var option1 = e.target.elements.option1.value;
+    // const option1 = e.target.elements.option1.value
     console.log(e.target.elements);
-    if (option && option1) {
+    if (option) {
+        debugger;
         app.options.push(option);
-        app.options.push(option1);
         e.target.elements.option.value = "";
-        e.target.elements.option1.value = "";
+        // e.target.elements.option1.value = "";
         renderFunc();
     }
     //e.target.elements.option1.value = "Hasmukh"
@@ -63,27 +62,32 @@ var renderFunc = function renderFunc() {
         React.createElement(
             'ol',
             { className: 'list-view' },
-            React.createElement(
+            app.options.map(function (number) {
+                return React.createElement(
+                    'li',
+                    { key: number },
+                    number
+                );
+            }),
+            [10, 20, 30],
+            [React.createElement(
                 'li',
-                null,
-                'Item 1'
-            ),
-            React.createElement(
+                { key: '1' },
+                'a'
+            ), React.createElement(
                 'li',
-                null,
-                'Item 2'
-            ),
-            React.createElement(
+                { key: '2' },
+                'b'
+            ), React.createElement(
                 'li',
-                null,
-                'Item 3'
-            )
+                { key: '3' },
+                'c'
+            )]
         ),
         React.createElement(
             'form',
             { onSubmit: onSubmitForm },
             React.createElement('input', { type: 'text', name: 'option', placeholder: 'Enter value' }),
-            React.createElement('input', { type: 'text', name: 'option1', placeholder: 'Enter value' }),
             React.createElement(
                 'button',
                 { type: 'submit' },

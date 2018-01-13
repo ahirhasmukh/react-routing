@@ -1,5 +1,4 @@
 // JSX - Javascript XML
-
 const app = {
     title : 'This is react demo project',
     subTitle : 'This is a sub title',
@@ -10,13 +9,13 @@ const onSubmitForm = (e) =>{
     e.preventDefault();
     console.log('function called');
     const option = e.target.elements.option.value
-    const option1 = e.target.elements.option1.value
+    // const option1 = e.target.elements.option1.value
     console.log(e.target.elements);
-    if(option && option1){
+    if(option){
+        debugger
         app.options.push(option);
-        app.options.push(option1);
         e.target.elements.option.value = "";
-        e.target.elements.option1.value = "";
+        // e.target.elements.option1.value = "";
         renderFunc();
     }
     //e.target.elements.option1.value = "Hasmukh"
@@ -39,13 +38,18 @@ const renderFunc = () =>{
             <p>{app.options.length}</p>
             <button style={{marginTop:'2px'}} type="button" onClick={onRemoveOptions}>Remove All</button>
             <ol className="list-view">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+            {
+                app.options.map((number) =>  <li key={number}>{number}</li>)
+            }
+            {/* Local array but this is not nessaccery in logntim */}
+            {[10,20,30]}
+
+            {/* key prop */}
+            {[<li key="1">a</li>,<li key="2">b</li>,<li key="3">c</li>]}
             </ol>
             <form onSubmit={onSubmitForm}>
                 <input type="text" name="option" placeholder="Enter value"/>
-                <input type="text" name="option1" placeholder="Enter value"/>
+                {/* <input type="text" name="option1" placeholder="Enter value"/> */}
                 <button type="submit">Add Value</button><br/>
             </form>
         </div>
