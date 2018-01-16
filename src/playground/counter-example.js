@@ -30,6 +30,20 @@ class Counter extends React.Component{
              count: 0
             }
         });
+
+        // this.setState((prevState) => {
+        //     return {
+        //      count: prevState.count + 1
+        //     }
+        // });
+
+        // this.setState({
+        //     count:0
+        // })
+
+        // this.setState({
+        //     count: this.state.count + 1
+        // })
     }
 
     render() {
