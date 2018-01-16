@@ -1,4 +1,4 @@
-let visibility = false;
+visibility = false;
 
 const visibleToggleEvent = () => {
     visibility = !visibility;

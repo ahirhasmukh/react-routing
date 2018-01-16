@@ -32,6 +32,17 @@ const onRendomValue = () => {
 
 const appRoot = document.getElementById('app');
 
+let obj = {a:1, b:2};
+
+const add = ({a=0,b=0} = {}) =>{
+    // obj = obj || {};
+    // let a = obj.a || 0;
+    
+    // let b = obj.b || 0;
+    return a + b;
+}
+
+console.log(add(obj));
 
 const renderFunc = () =>{
     const template = (
@@ -56,6 +67,8 @@ const renderFunc = () =>{
                 {/* <input type="text" name="option1" placeholder="Enter value"/> */}
                 <button type="submit">Add Value</button><br/>
             </form>
+
+
         </div>
     );
     ReactDOM.render(template,appRoot);

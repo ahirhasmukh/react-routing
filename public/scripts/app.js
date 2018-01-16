@@ -34,6 +34,24 @@ var onRendomValue = function onRendomValue() {
 
 var appRoot = document.getElementById('app');
 
+var obj = { a: 1, b: 2 };
+
+var add = function add() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref$a = _ref.a,
+        a = _ref$a === undefined ? 0 : _ref$a,
+        _ref$b = _ref.b,
+        b = _ref$b === undefined ? 0 : _ref$b;
+
+    // obj = obj || {};
+    // let a = obj.a || 0;
+
+    // let b = obj.b || 0;
+    return a + b;
+};
+
+console.log(add(obj));
+
 var renderFunc = function renderFunc() {
     var template = React.createElement(
         'div',
