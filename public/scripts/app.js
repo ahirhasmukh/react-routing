@@ -8,6 +8,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// Bind method examples
+
+var obj = {
+    name: 'Hasmukh',
+    age: 27,
+    getName: function getName() {
+        return this.name + ' ' + this.age;
+    }
+};
+
+//const getName = obj.getName.bind(obj);
+
+//console.log(getName());
+
+
 var ComponentDemo = function (_React$Component) {
     _inherits(ComponentDemo, _React$Component);
 
@@ -99,15 +114,20 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
-    function Options() {
+    function Options(props) {
         _classCallCheck(this, Options);
 
-        return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
+        var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
+
+        _this4.onRemoveAll = _this4.onRemoveAll.bind(_this4);
+        return _this4;
     }
 
     _createClass(Options, [{
         key: 'onRemoveAll',
-        value: function onRemoveAll(e) {}
+        value: function onRemoveAll() {
+            console.log(this.props.options);
+        }
     }, {
         key: 'render',
         value: function render() {
@@ -116,7 +136,7 @@ var Options = function (_React$Component4) {
                 { style: { marginTop: '10px' } },
                 React.createElement(
                     'button',
-                    { type: 'button', onClick: this.onRemoveAll },
+                    { type: 'button', onClick: this.onRemoveAll.bind(this) },
                     'Remove All'
                 ),
                 React.createElement(

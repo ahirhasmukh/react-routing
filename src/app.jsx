@@ -1,3 +1,19 @@
+// Bind method examples
+
+const obj = {
+    name : 'Hasmukh',
+    age : 27,
+    getName(){
+        return this.name + ' ' + this.age;
+    }
+}
+
+//const getName = obj.getName.bind(obj);
+
+//console.log(getName());
+
+
+
 class ComponentDemo extends React.Component{
     render(){
         const title = 'This is a React Demo';
@@ -36,13 +52,17 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-    onRemoveAll(e){
-
+    constructor(props){
+        super(props);
+        this.onRemoveAll = this.onRemoveAll.bind(this);
+    }
+    onRemoveAll(){
+        console.log(this.props.options);
     }
     render(){
         return (
             <div style={{marginTop:'10px'}}>
-                <button type="button" onClick={this.onRemoveAll}>Remove All</button>
+                <button type="button" onClick={this.onRemoveAll.bind(this)}>Remove All</button>
                 <ul>
                 {
                     this.props.options.map((option) => <Option key={option} option={option} />) 
