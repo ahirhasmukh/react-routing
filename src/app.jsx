@@ -36,10 +36,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    onRemoveAll(e){
+
+    }
     render(){
-        console.log();
         return (
             <div style={{marginTop:'10px'}}>
+                <button type="button" onClick={this.onRemoveAll}>Remove All</button>
                 <ul>
                 {
                     this.props.options.map((option) => <Option key={option} option={option} />) 
@@ -61,14 +64,24 @@ class Option extends React.Component{
 }
 
 class AddOption extends React.Component {
+    handleAppOption(e){
+        e.preventDefault();
+        const option = e.target.inputValue.value.trim();
+        if(option){
+            console.log(option);
+        }
+        e.target.inputValue.value = "";
+    }
     render(){
         return (
             <div style={{marginTop:'10px'}}>
-                Add option component here
+                <form onSubmit={this.handleAppOption}>
+                    <input type="text" name="inputValue" placeholder="Enter value"/> 
+                    <button>ADD</button>
+                </form>
             </div>
         );
     }
 }
-
 
 ReactDOM.render(<ComponentDemo />,document.getElementById('app'));
