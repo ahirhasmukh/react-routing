@@ -149,4 +149,17 @@ class AddOption extends React.Component {
     }
 }
 
+// const StateLessFunc = (props) =>{
+//     return (
+//         <div>
+//             <p>Name: {props.userDetails.name}</p>
+//             <p>Age: {props.userDetails.age}</p>
+//         </div>
+//     );
+// };
+
+// let body ={
+//     name:'Hasmukh',age:27
+// }
+
 ReactDOM.render(<ComponentDemo />,document.getElementById('app'));
