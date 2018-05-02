@@ -1,17 +1,9 @@
-// import './utility';
-//var validator = require('validator');
-import validator from 'validator';
 import React from  'react';
 import ReactDOM from 'react-dom';
+import AddOption from './components/AddOption';
+import Action from './components/Action';
+import Header from './components/Header';
+import Options from './components/Options';
+import ComponentDemo from './components/mainComponent';
 
-import './person.jsx';
-import canDrink123, {isAdult} from './person.jsx';
-import {square , add} from './utility';
-
-console.log('app running');
- console.log(square(3));
-// console.log(add(5,5));
-// console.log(isAdult(19));
-// console.log(canDrink123(2));
-
-console.log(validator.isEmail('foo@gmail.com'));
+ReactDOM.render(<ComponentDemo  options={['hasmukh','karan']}/>,document.getElementById('app'));
