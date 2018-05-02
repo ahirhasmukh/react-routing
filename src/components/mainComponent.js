@@ -3,22 +3,34 @@ import AddOption from './AddOption';
 import Action from './Action';
 import Header from './Header';
 import Options from './Options';
+import OptionModal from './OptionModal';
+import Modal from 'react-modal';
 
 export default class ComponentDemo extends React.Component{
-    constructor(props){
+    constructor(props) {
         super(props); 
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
         this.handleAppOptionMethod = this.handleAppOptionMethod.bind(this);
+        this.handleClearSelectedOption = this.handleClearSelectedOption.bind(this);
         this.state = {
             options : props.options
         };
     }
 
+    componentWillMount() {
+        Modal.setAppElement('body');
+    }
+
+    handleClearSelectedOption(){
+        this.setState(() => ({selectedOptions:undefined}));
+    };
+
     handleDeleteOptions(){
         this.setState(() => {
             return {
-                options:[]
+                options:[],
+                selectedOptions: undefined
             }
         })
     }
@@ -27,6 +39,12 @@ export default class ComponentDemo extends React.Component{
         const randomNum = Math.floor(Math.random() * this.state.options.length);
         const option = this.state.options[randomNum];
         console.log(option);
+
+        this.setState(() => {
+            return {
+                selectedOptions : option
+            }
+        });
     }
 
     handleAppOptionMethod(option){
@@ -52,6 +70,8 @@ export default class ComponentDemo extends React.Component{
                <Action handlePick={this.handlePick} hasOptions = {this.state.options.length > 0}/>
                <Options options={this.state.options} handleDeleteOptions={this.handleDeleteOptions}/>
                <AddOption handleAppOption={this.handleAppOptionMethod}/>
+               <OptionModal selectedOptions={this.state.selectedOptions}
+               handleClearSelectedOption = {this.handleClearSelectedOption}/>
             </div>
         );
     }

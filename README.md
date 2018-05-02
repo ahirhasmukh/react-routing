@@ -32,4 +32,5 @@ Install live server for run react application
       - babel src/app.js --out-file=public/scripts/app.js --presets=env,react
       - babel src/app.js --out-file=public/scripts/app.js --watch (Detect change every time)
 
-      
+    React Modal
+      - https://github.com/reactjs/react-modal
