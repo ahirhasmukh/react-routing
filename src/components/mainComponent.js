@@ -94,38 +94,7 @@ ComponentDemo.defaultProps = {
 // Default props
 Header.defaultProps = {
     title:'This is title'
-}
-
-// const Action = (props) =>{
-//     return (
-//         <div>
-//             <button type="button" onClick={props.handlePick} disabled={!props.hasOptions}>What should i do?</button>
-//         </div>
-//     );
-// }
-
-
-
-// const Options = (props) =>{
-//     return (
-//         <div style={{marginTop:'10px'}}>
-//             <button type="button" onClick={props.handleDeleteOptions}>Remove All</button>
-//             <ul>
-//             {
-//                 props.options.map((option) => <Option key={option} option={option} />) 
-//             }
-//             </ul>
-//         </div>
-//     );
-// }
-
-// const Option = (props) =>{
-//     return (
-//         <div>
-//             <li>Option : {props.option}</li>
-//         </div>
-//     );
-// }
+};
 
 // const AddOption = () =>{
 //     function constructor(props){
