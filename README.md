@@ -33,4 +33,16 @@ Install live server for run react application
       - babel src/app.js --out-file=public/scripts/app.js --watch (Detect change every time)
 
     React Modal
-      - https://github.com/reactjs/react-modal
+      - https://github.com/reactjs/react-
+      
+    About Sass
+
+    - https://www.npmjs.com/package/style-loader
+
+    - https://www.npmjs.com/package/css-loader
+
+    - https://www.npmjs.com/package/node-sass-loader
+
+    - https://necolas.github.io/normalize.css/
+
+    - http://sass-lang.com/documentation/Sass/Script/Functions.html

@@ -91,11 +91,6 @@ ComponentDemo.defaultProps = {
 //     );
 // }
 
-// Default props
-Header.defaultProps = {
-    title:'This is title'
-};
-
 // const AddOption = () =>{
 //     function constructor(props){
 //         super(props);

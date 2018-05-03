@@ -17,13 +17,15 @@ import Option from './Option';
 // }
 
 const Options = (props) => (
-    <div style={{marginTop:'10px'}}>
-        <button type="button" onClick={props.handleDeleteOptions}>Remove All</button>
-        <ul>
-        {
-            props.options.map((option) => <Option key={option} option={option} />) 
-        }
-        </ul>
+    <div className="container">
+        <div style={{marginTop:'10px'}}>
+            <button type="button" onClick={props.handleDeleteOptions}>Remove All</button>
+            <ul>
+            {
+                props.options.map((option) => <Option key={option} option={option} />) 
+            }
+            </ul>
+        </div>
     </div>
 );
 

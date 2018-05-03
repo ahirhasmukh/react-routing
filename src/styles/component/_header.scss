@@ -1,0 +1,15 @@
+.header{
+    background: $black;
+    color: $white;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    &__title{
+        padding: 0;
+        margin: 0;
+    }
+    &__sub-title{
+        padding: 0;
+        margin: 0;
+    }
+}
