@@ -1,6 +1,6 @@
 import React from  'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //import 'normalize.css/normalize.css';
 import './styles/style.scss';
 
@@ -22,13 +22,21 @@ const EditComponent = () => (
     </div>
 );
 
+const NotFoundComponent = () => (
+    <div>
+        <p>404</p>
+    </div>
+);
+
+
 const routes = (
     <BrowserRouter>
-        <div>
+        <Switch>
             <Route path="/" component={homeComponent} exact={true}/>
             <Route path="/create" component={CreatComponent}/>
             <Route path="/edit" component={EditComponent}/>
-        </div>
+            <Route component={NotFoundComponent}/>
+        </Switch>
     </BrowserRouter>
 );
 
