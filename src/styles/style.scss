@@ -1,0 +1,10 @@
+header{
+    a{
+        display: inline-block;
+        margin-right: 10px;
+        &.is-active{
+            font-weight: bold;
+            color: blue;
+        }
+    }
+}

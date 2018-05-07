@@ -46,3 +46,6 @@ Install live server for run react application
     - https://necolas.github.io/normalize.css/
 
     - http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+    Run Project
+     - npm run dev-server
