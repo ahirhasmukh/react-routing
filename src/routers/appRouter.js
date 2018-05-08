@@ -7,6 +7,7 @@ import HelpComponent from '../components/help-component';
 import EditComponent from '../components/edit-component';
 import NotFoundComponent from '../components/not-found';
 import Header from '../components/header-component';
+import EditItemComponent from '../components/edit-item-component';
 
 // const Header = () => (
 //     <header>
@@ -24,7 +25,8 @@ const AppRouter = () => (
             <Switch>
                 <Route path="/" component={homeComponent} exact={true}/>
                 <Route path="/create" component={CreateComponent}/>
-                <Route path="/edit" component={EditComponent}/>
+                <Route path="/edit" component={EditComponent} exact={true}/>
+                <Route path="/edit/:id" component={EditItemComponent}/>
                 <Route path="/help" component={HelpComponent}/>
                 <Route component={NotFoundComponent}/>
             </Switch>
