@@ -1,19 +1,21 @@
 # ReactJs Application Demo
 
-Install yarn
- - npm install -g yarn
+  Install yarn
+    - npm install -g yarn
 
-Install live server for run react application
+  Install live server for run react application
 
- - using npm 
-    npm install -g live-server
+    - using npm 
+      npm install -g live-server
 
- - using yarn
-    yarn global add live-server
+    - using yarn
+      yarn global add live-server
+
 
 # Create package.json file
 
-   npm init or yarn init
+  - npm init or yarn init
+
 
 # Babel
 
@@ -28,24 +30,47 @@ Install live server for run react application
       - npm install babel-preset-react babel-preset-env
       - npm install babel-preset-react@6.24.1 babel-preset-env@1.5.2 (Specific version)
 
+
     Babel run:
+
       - babel src/app.js --out-file=public/scripts/app.js --presets=env,react
       - babel src/app.js --out-file=public/scripts/app.js --watch (Detect change every time)
 
-    React Modal
-      - https://github.com/reactjs/react-modal
-      
-    About Sass
 
-    - https://www.npmjs.com/package/style-loader
+# React Modal
 
-    - https://www.npmjs.com/package/css-loader
+  - https://github.com/reactjs/react-modal
 
-    - https://www.npmjs.com/package/node-sass-loader
 
-    - https://necolas.github.io/normalize.css/
+# SASS
 
-    - http://sass-lang.com/documentation/Sass/Script/Functions.html
+  - https://www.npmjs.com/package/style-loader
 
-    Run Project
-     - npm run dev-server
+  - https://www.npmjs.com/package/css-loader
+
+  - https://www.npmjs.com/package/node-sass-loader
+
+  - https://necolas.github.io/normalize.css/
+
+  - http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+
+# Routing
+
+  - https://github.com/ReactTraining/react-router
+
+  - https://reacttraining.com/react-router/
+
+
+# Redux
+
+  - https://redux.js.org/
+
+  - https://github.com/reactjs/redux
+
+  - npm install --save redux
+
+
+# Run Project
+
+  - npm run dev-server

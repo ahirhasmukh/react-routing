@@ -4,4 +4,4 @@ import AppRouter from './routers/appRouter'
 //import 'normalize.css/normalize.css';
 import './styles/style.scss';
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+ReactDOM.render(<AppRouter />, document.getElementById('app')); 
